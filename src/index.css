@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #10231a;
+  background-color: #f7faf8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #eef4f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #bfe3d0;
+  border-radius: 8px;
+  border: 2px solid #eef4f0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2e9b68;
+}
+
+/* Grid background utility */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(11, 93, 59, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 93, 59, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(46, 155, 104, 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 155, 104, 0.10) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Subtle radial glow */
+.bg-radial-glow {
+  background: radial-gradient(60% 60% at 50% 30%, rgba(46, 155, 104, 0.10), transparent 70%);
+}
+
+/* Thin gradient divider */
+.divider-gradient {
+  background: linear-gradient(90deg, transparent, rgba(11, 93, 59, 0.25), transparent);
+  height: 1px;
+}
+
+/* Reusable card */
+.card-base {
+  background: #ffffff;
+  border: 1px solid #d8e5de;
+  border-radius: 18px;
+  box-shadow: 0 1px 2px rgba(6, 59, 39, 0.04), 0 4px 16px rgba(6, 59, 39, 0.06);
+}
+
+/* Marker pulse for GIS */
+.marker-pulse {
+  position: relative;
+}
+.marker-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Scan line */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(46, 155, 104, 0.7), transparent);
+  animation: scan 3.5s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Number tabular */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
